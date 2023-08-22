@@ -1,0 +1,13 @@
+In the task of sentiment analysis on IMDb movie reviews, my approach has been to leverage the power of deep learning, specifically using a form of artificial neural networks (ANNs) called embeddings, for text analysis. 
+
+The most common type of model for this kind of task is a Recurrent Neural Network (RNN) with Long Short Term Memory (LSTM) units, but for the purpose of simplicity and computation efficiency, I chose an embedding layer with a dense (also known as fully connected) layers.
+
+The model first converts the words into integer indices and then uses these indices to look up the embedding for each word. These embeddings are learned during the training process. The model then flattens the 3D tensor of embeddings into a 2D tensor and then applies two dense layers. The final layer uses a sigmoid function to output probabilities indicating the sentiment of the reviews.
+
+A challenge faced during this process would be handling overfitting. Overfitting is when a model learns the training data too well and performs poorly on unseen data. To overcome this, I have used the EarlyStopping callback function in Keras which pauses training when the validation loss is no longer decreasing.
+
+Another challenge often faced is the huge amount of computational resources needed to perform such tasks. This was mitigated by reducing the number of words used for the embedding, limiting the maximum review length and reducing embedding vector length.
+
+Moreover, while preprocessing the text data for inference, I have taken care of removing punctuation, converting to lowercase and only including alphabetical words. This ensures that our text data is clean and ready for prediction.
+
+Overall, deep learning provides a practical and powerful approach for sentiment analysis. As the amount of text data continues to grow, these methods will only become more important.
